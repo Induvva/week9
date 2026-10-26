@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Event Registration</title>
+</head>
+<body>
+    <h1>Event Registration</h1>
+    {% if show_form %}
+    <form method="post">
+        <p>
+            <label>Name:</label><br>
+            <input type="text" name="name" required>
+        </p>
+        <p>
+            <label>Email:</label><br>
+            <input type="email" name="email" required>
+        </p>
+        <button type="submit">Register</button>
+    </form>
+    {% endif %}
+    {% if message %}
+        <p><strong>{{ message }}</strong></p>
+    {% endif %}
+    {% if not show_form %}
+        <p><a href="/">Register another attendee</a></p>
+    {% endif %}
+</body>
+</html>
