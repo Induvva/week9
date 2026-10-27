@@ -13,7 +13,7 @@ pipeline {
         stage('Docker Login') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-credentials',
+                    credentialsId: 'docker-credentials',
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASSWORD'
                 )]) {
@@ -24,8 +24,8 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 echo "Push Docker Image to Docker Hub"
-                bat "docker tag kubedemoapp:v1 <your-dockerhub-username>/sample:kubeimage1"
-                bat "docker push <your-dockerhub-username>/sample:kubeimage1"
+                bat "docker tag kubedemoapp:v1 induduvva/week9:kubeimage1"
+                bat "docker push induduvva/week9:kubeimage1"
             }
         }
         stage('Deploy to Kubernetes') {
